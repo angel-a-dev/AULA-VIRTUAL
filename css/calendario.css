@@ -1,0 +1,87 @@
+/* ARCHIVO: css/calendario.css */
+
+.calendar-wrapper {
+    background-color: var(--blanco);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-card);
+    padding: 30px;
+}
+
+.calendar-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-toolbar h2 {
+    color: var(--azul-oscuro);
+    text-transform: capitalize;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-header-day {
+    text-align: center;
+    font-weight: 600;
+    color: var(--gris-texto);
+    padding: 10px;
+    background-color: #f8fafc;
+    border-radius: 4px;
+}
+
+.calendar-day {
+    min-height: 100px;
+    border: 1px solid var(--gris-borde);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: 0.2s;
+}
+
+.calendar-day:hover {
+    border-color: var(--azul-claro);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-day.empty {
+    background-color: #f9fafb;
+    border-color: transparent;
+}
+
+.day-number {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--texto-principal);
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.event-badge {
+    font-size: 11px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.event-examen {
+    background-color: var(--rojo-error);
+}
+
+.event-tarea {
+    background-color: var(--azul-claro);
+}
+
+.event-general {
+    background-color: var(--verde-exito);
+}

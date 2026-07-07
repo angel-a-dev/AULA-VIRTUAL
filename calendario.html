@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario - Aula Virtual</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/calendario.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Aula Virtual</h2>
+                <p style="font-size: 12px; color: #aaa; margin-top: 5px;">UNICA</p>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">⬅️ Volver al Inicio</a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="header-title">
+                    <h3>Calendario Académico</h3>
+                </div>
+                <div class="header-user-info">
+                    <a href="perfil.html" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+                        <div class="user-details" style="text-align: right;">
+                            <h4 id="header-user-name" style="color: var(--texto-principal);">Cargando...</h4>
+                            <p id="header-user-role" style="color: var(--gris-texto);">...</p>
+                        </div>
+                        <img src="" alt="Avatar" id="header-user-avatar" class="user-avatar">
+                    </a>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="calendar-wrapper">
+                    <div class="calendar-toolbar">
+                        <h2 id="mesAñoTexto">Mes Año</h2>
+                        <button class="btn-primary" id="btnNuevoEvento" style="width: auto; display: none;"
+                            onclick="abrirModalEvento()">+ Nuevo Evento</button>
+                    </div>
+
+                    <div class="calendar-grid" id="calendarGrid">
+                        <div class="calendar-header-day">Dom</div>
+                        <div class="calendar-header-day">Lun</div>
+                        <div class="calendar-header-day">Mar</div>
+                        <div class="calendar-header-day">Mié</div>
+                        <div class="calendar-header-day">Jue</div>
+                        <div class="calendar-header-day">Vie</div>
+                        <div class="calendar-header-day">Sáb</div>
+                    </div>
+                </div>
+            </main>
+
+            <div id="modalEvento" class="modal-overlay" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Agregar Evento</h3>
+                        <button class="btn-close" onclick="cerrarModalEvento()">&times;</button>
+                    </div>
+                    <form id="formEvento">
+                        <div class="form-group">
+                            <label>Fecha del Evento</label>
+                            <input type="date" id="eventoFecha" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Título</label>
+                            <input type="text" id="eventoTitulo" class="form-control" placeholder="Ej: Examen Parcial"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de Evento</label>
+                            <select id="eventoTipo" class="form-control" required>
+                                <option value="general">Evento General (Verde)</option>
+                                <option value="tarea">Entrega de Tarea (Azul)</option>
+                                <option value="examen">Examen (Rojo)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary" style="margin-top: 10px;">Guardar en
+                            Calendario</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/calendario.js"></script>
+</body>
+
+</html>

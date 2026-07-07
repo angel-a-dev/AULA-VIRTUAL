@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Virtual - Curso</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/curso.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Aula Virtual</h2>
+                <p style="font-size: 12px; color: #aaa; margin-top: 5px;">UNICA</p>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">⬅️ Volver al Inicio</a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="header-title">
+                    <h3 id="page-title">Entorno del Curso</h3>
+                </div>
+                <div class="header-user-info">
+                    <div class="user-details" style="text-align: right;">
+                        <h4 id="header-user-name">Cargando...</h4>
+                        <p id="header-user-role">...</p>
+                    </div>
+                    <img src="" alt="Avatar" id="header-user-avatar" class="user-avatar">
+                    <div id="modalNuevoCuestionario" class="modal-overlay">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Crear Cuestionario Rápido</h3>
+                                <button class="btn-close" onclick="cerrarModalCuestionario()">&times;</button>
+                            </div>
+                            <form id="formNuevoCuestionario">
+                                <div class="form-group">
+                                    <label>Título del Examen</label>
+                                    <input type="text" id="cuestTitulo" class="form-control" required
+                                        placeholder="Ej: Control de Lectura 1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Pregunta</label>
+                                    <input type="text" id="cuestPregunta" class="form-control" required placeholder="¿Qué es un sistema?">
+                                </div>
+                    
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                                    <div>
+                                        <label style="font-size: 12px; color: var(--gris-texto);">Opción A</label>
+                                        <input type="text" id="cuestOptA" class="form-control" required>
+                                    </div>
+                                    <div>
+                                        <label style="font-size: 12px; color: var(--gris-texto);">Opción B</label>
+                                        <input type="text" id="cuestOptB" class="form-control" required>
+                                    </div>
+                                </div>
+                    
+                                <div class="form-group">
+                                    <label>Respuesta Correcta</label>
+                                    <select id="cuestRespuesta" class="form-control" required>
+                                        <option value="A">Opción A</option>
+                                        <option value="B">Opción B</option>
+                                    </select>
+                                </div>
+                    
+                                <button type="submit" class="btn-primary" style="margin-top: 10px;">Publicar Examen</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div id="modalResolverCuestionario" class="modal-overlay">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="resolverTitulo">Resolviendo Examen</h3>
+                                <button class="btn-close" onclick="cerrarModalResolver()">&times;</button>
+                            </div>
+                            <form id="formResolverCuestionario">
+                                <input type="hidden" id="resolverCuestId">
+                                <input type="hidden" id="resolverRespuestaCorrecta">
+                    
+                                <div
+                                    style="margin-bottom: 20px; padding: 15px; background-color: var(--gris-fondo); border-radius: var(--borde-radio);">
+                                    <h4 id="resolverPregunta" style="color: var(--azul-oscuro); margin-bottom: 15px;">Cargando pregunta...
+                                    </h4>
+                    
+                                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                            <input type="radio" name="opcionRespuesta" value="A" required>
+                                            <span id="labelOptA">Opción A</span>
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                            <input type="radio" name="opcionRespuesta" value="B" required>
+                                            <span id="labelOptB">Opción B</span>
+                                        </label>
+                                    </div>
+                                </div>
+                    
+                                <button type="submit" class="btn-primary">Enviar Respuesta</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-area" id="curso-content">
+                <div id="curso-info-container">
+                </div>
+            </main>
+            <div id="modalNuevaTarea" class="modal-overlay">
+            </div>
+            
+            <div id="modalEntregarTarea" class="modal-overlay">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/session.js"></script>
+    
+    <script src="js/curso.js"></script>
+    </body>
+    
+    </html>

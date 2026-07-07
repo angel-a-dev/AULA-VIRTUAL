@@ -1,0 +1,85 @@
+/* Importamos una fuente moderna (Inter) similar a la usada en sistemas profesionales */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Paleta de colores solicitada */
+    --azul-oscuro: #0A2540;
+    /* Para el header y sidebar */
+    --azul-claro: #0066FF;
+    /* Para botones y acentos */
+    --azul-hover: #0052cc;
+    /* Para el efecto hover de botones */
+    --blanco: #FFFFFF;
+    /* Para las cards */
+    --gris-fondo: #F3F4F6;
+    /* Fondo general del sistema */
+    --gris-texto: #4B5563;
+    /* Textos secundarios */
+    --gris-borde: #E5E7EB;
+    /* Bordes de inputs y cards */
+    --texto-principal: #111827;
+    /* Texto principal */
+    --rojo-error: #EF4444;
+    /* Para mensajes de error */
+    --verde-exito: #10B981;
+    /* Para mensajes de éxito */
+
+    /* Sombras y bordes redondeados */
+    --sombra-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --borde-radio: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--gris-fondo);
+    color: var(--texto-principal);
+    line-height: 1.5;
+}
+/* --- ELEMENTOS GLOBALES (Botones y Formularios) --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--gris-borde);
+    border-radius: var(--borde-radio);
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background-color: var(--azul-claro);
+    color: var(--blanco);
+    border: none;
+    border-radius: var(--borde-radio);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--azul-hover);
+}

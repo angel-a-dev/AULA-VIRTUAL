@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Aula Virtual</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Aula Virtual</h2>
+                <p style="font-size: 12px; color: #aaa; margin-top: 5px;">UNICA</p>
+            </div>
+            <nav class="sidebar-menu" id="sidebar-menu">
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="header-title">
+                    <h3 id="page-title">Panel de Control</h3>
+                </div>
+                <div class="header-user-info">
+                    <div class="user-details" style="text-align: right;">
+                        <h4 id="header-user-name">Cargando...</h4>
+                        <p id="header-user-role">...</p>
+                    </div>
+                    <img src="" alt="Avatar" id="header-user-avatar" class="user-avatar">
+                    <button id="btnCerrarSesion" class="btn-logout">Salir</button>
+                </div>
+            </header>
+
+            <main class="content-area" id="dashboard-content">
+            </main>
+        </div>
+    </div>
+    <div id="modalMatricula" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="tituloModalMatricula">Matricular Alumnos</h3>
+                <button class="btn-close" onclick="cerrarModalMatricula()">&times;</button>
+            </div>
+            <form id="formMatricula">
+                <input type="hidden" id="matriculaCursoId">
+    
+                <div class="form-group">
+                    <label>Profesor Asignado al Curso</label>
+                    <select id="selectProfesor" class="form-control"></select>
+                </div>
+    
+                <div class="form-group">
+                    <label>Seleccionar Alumnos</label>
+                    <div id="listaAlumnosMatricula"
+                        style="max-height: 150px; overflow-y: auto; border: 1px solid var(--gris-borde); padding: 10px; border-radius: var(--borde-radio);">
+                    </div>
+                </div>
+    
+                <button type="submit" class="btn-primary" style="margin-top: 10px;">Guardar Matrícula</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/session.js"></script>
+    
+    <script src="js/admin.js"></script>
+    <script src="js/profesor.js"></script>
+    <script src="js/alumno.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            protegerRuta();
+
+            const usuario = obtenerUsuarioActivo();
+            if (!usuario) return; // Si no hay usuario, detenemos el código aquí
+
+            // Pintar datos del Header
+            document.getElementById('header-user-name').textContent = usuario.nombre;
+            document.getElementById('header-user-role').textContent = usuario.rol;
+            document.getElementById('header-user-avatar').src = usuario.foto;
+            document.getElementById('btnCerrarSesion').addEventListener('click', cerrarSesion);
+
+            // Capturar los contenedores vacíos de la interfaz
+            const menuContainer = document.getElementById('sidebar-menu');
+            const contentContainer = document.getElementById('dashboard-content');
+
+            // Enrutador: Dependiendo del rol, llamamos a una función distinta
+            if (usuario.rol === 'admin') {
+                cargarDashboardAdmin(menuContainer, contentContainer);
+            } else if (usuario.rol === 'profesor') {
+                cargarDashboardProfesor(menuContainer, contentContainer);
+            } else if (usuario.rol === 'alumno') {
+                cargarDashboardAlumno(menuContainer, contentContainer);
+            }
+        });
+    </script>
+    </body>
+    
+    </html>
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes - Aula Virtual</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/mensajes.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Aula Virtual</h2>
+                <p style="font-size: 12px; color: #aaa; margin-top: 5px;">UNICA</p>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">⬅️ Volver al Inicio</a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="header-title">
+                    <h3>Mensajería Interna</h3>
+                </div>
+                <div class="header-user-info">
+                    <a href="perfil.html" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+                        <div class="user-details" style="text-align: right;">
+                            <h4 id="header-user-name" style="color: var(--texto-principal);">Cargando...</h4>
+                            <p id="header-user-role" style="color: var(--gris-texto);">...</p>
+                        </div>
+                        <img src="" alt="Avatar" id="header-user-avatar" class="user-avatar">
+                    </a>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="chat-wrapper">
+                    <div class="chat-sidebar">
+                        <div class="chat-search">
+                            <h4 style="color: var(--azul-oscuro);">Contactos</h4>
+                        </div>
+                        <ul class="contacts-list" id="listaContactos">
+                        </ul>
+                    </div>
+
+                    <div class="chat-box" id="chatVacio">
+                        <div
+                            style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--gris-texto); flex-direction: column;">
+                            <div style="font-size: 50px; margin-bottom: 10px;">💬</div>
+                            <p>Selecciona un contacto para iniciar una conversación</p>
+                        </div>
+                    </div>
+
+                    <div class="chat-box" id="chatActivo" style="display: none;">
+                        <div class="chat-header">
+                            <img src="" id="chatAvatar" class="user-avatar">
+                            <div>
+                                <h4 id="chatNombre">Nombre del Contacto</h4>
+                                <p id="chatRol"
+                                    style="font-size: 12px; color: var(--gris-texto); text-transform: capitalize;">Rol
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="chat-history" id="historialMensajes">
+                        </div>
+
+                        <div class="chat-input-area">
+                            <form id="formEnviarMensaje" class="chat-form">
+                                <input type="hidden" id="receptorId">
+                                <input type="text" id="inputMensaje" class="form-control"
+                                    placeholder="Escribe un mensaje..." required autocomplete="off">
+                                <button type="submit" class="btn-primary" style="width: auto;">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/mensajes.js"></script>
+</body>
+
+</html>
