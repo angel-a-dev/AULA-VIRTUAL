@@ -15,25 +15,7 @@
  * QUÉ PASARÍA SI SE ELIMINARA: Si el usuario entra por primera vez, el sistema daría errores 
  *                              porque no encontraría el usuario Admin para iniciar sesión.
  */
-/* ARCHIVO: js/storage.js */
 
-// 1. DEFINE LA VARIABLE AQUÍ ARRIBA
-const datosIniciales = {
-    usuarios: [
-        { id: "USR-001", nombre: "Admin Principal", correo: "admin@universidad.edu.pe", password: "123", rol: "admin", foto: "" },
-        { id: "USR-002", nombre: "Carlos Mendoza", correo: "cmendoza@universidad.edu.pe", password: "123", rol: "profesor", foto: "" }
-    ],
-    cursos: []
-};
-
-// 2. AHORA LA FUNCIÓN PODRÁ ENCONTRARLA
-function initStorage() {
-    if (!localStorage.getItem('usuarios')) {
-        console.log("Primera visita detectada. Inicializando base de datos...");
-        localStorage.setItem('usuarios', JSON.stringify(datosIniciales.usuarios));
-        localStorage.setItem('cursos', JSON.stringify(datosIniciales.cursos));
-    }
-}
 function initStorage() {
     // Verificamos si ya existe la llave 'usuarios' en el LocalStorage
     // LocalStorage solo guarda TEXTO, no objetos.
